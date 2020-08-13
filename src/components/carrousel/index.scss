@@ -1,0 +1,66 @@
+.seriesWrapper {
+    color: white;
+    padding: 1rem 0;
+    padding-left: 2rem;
+
+    @media screen and (max-width:850px) {
+        padding-left: 1rem;
+    }
+
+
+    .series-carrousel {
+        margin-top: .5rem;
+        display: flex;
+        flex-wrap: nowrap;
+        overflow-x: hidden;
+        position: relative;
+
+        .slick-prev,
+        .slick-next,
+        .slick-arrow {
+            position: absolute;
+            z-index: 999;
+        }
+
+        .slick-prev {
+            left: .5rem;
+        }
+
+        .slick-next {
+            right: .5rem;
+        }
+
+        &__link {
+            margin: 0 .5rem;
+            display: flex;
+            flex-direction: column;
+            flex-shrink: 1;
+            align-items: center;
+            
+    
+            &:focus,
+            &:active {
+                outline: none;
+                border: none;
+            }
+    
+    
+            .progress-bar { 
+                margin: 0 auto;
+                margin-top: .6rem;
+                background-color: #858585;
+                height: .4rem;
+                width: 75%;
+    
+    
+                &__completed {
+                    width: 0;
+                    background-color: #C60F0E;
+                    height: 100%;
+                }
+    
+            }
+        }
+    }
+
+}
