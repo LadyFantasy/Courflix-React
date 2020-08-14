@@ -34,22 +34,17 @@ class Seleccion extends React.Component {
   render() {
     window.scrollTo(0, 0);
     const { item, recomended } = this.state;
+    console.log("SELECTION CHAPTERS?", item.chapters)
 
     return (
       <>
         <Navbar />
-        <Hero data={item} selection={true} />
+        <Hero data={item} selection={true} id="hero" />
 
         <div className="container">
-          <h3 className="series-title">
-            {item.chapters ? "Chapters" : "Recomended for you"}
-          </h3>
+          <h3 className="series-title">{item.chapters ? "Chapters" : "Recomended for you"}</h3>
           <Carrousel
-            data={
-              item.chapters
-                ? item.chapters
-                : recomended.filter((movie) => movie.recomended)
-            }
+            data={item.chapters ? item.chapters : recomended.filter(movie => movie.recomended)}
             series={item.chapters && true}
           />
         </div>

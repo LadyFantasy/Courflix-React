@@ -10,7 +10,7 @@ import Seleccion from "./pages/Seleccion"
 ReactDOM.render(
  <Router>
    <Route exact path="/" component={Home} />
-   <Route exact path="/selection/:id" component={Seleccion} />
+   <Route exact path="/selection/:id" component={Seleccion} reload={true}/>
  </Router>,
   document.getElementById('root')
 );

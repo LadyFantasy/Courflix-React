@@ -7,12 +7,12 @@ import "./index.scss";
 class Carrousel extends React.Component {
   constructor(props) {
     super(props);
-    
+
     this.settings = {
       slidesToShow: 4,
       slidesToScroll: 1,
       arrows: true,
-      infinite: true,
+      infinite: (props.series) ? false : true,
       variableWidth: true,
       draggable: true,
       responsive: [
@@ -26,23 +26,29 @@ class Carrousel extends React.Component {
         },
         {
           breakpoint: 600,
-          settings: props.series ? 'unslick' : {
-            slidesToShow: 1,
-            slidesToScroll: 1
-          }
+          settings: props.series
+            ? "unslick"
+            : {
+                slidesToShow: 1,
+                slidesToScroll: 1
+              }
         }
       ]
     };
   }
   render() {
     const { data, continueWatching, series } = this.props;
-   
-    
+
+    console.log("SERIES PROP", this.props.series)
+    console.log(this.settings.responsive[1].settings)
+    console.log("INFINITE?", this.settings.infinite)
+
     return (
       <div className="seriesWrapper">
         {series ? (
           // CHAPTERS
-          <Slider {...this.settings} className="series-carrousel">
+          <Slider {...this.settings}
+          className="series-carrousel">
             {data.map((item, key) => {
               return (
                 <div className="series-carrousel__link">
