@@ -5,49 +5,77 @@ import Movie from "../movie";
 import "./index.scss";
 
 class Carrousel extends React.Component {
-  constructor(props) {
-    super(props);
+//   constructor(props) {
+//     super(props);
 
-    this.settings = {
-      slidesToShow: 4,
-      slidesToScroll: 1,
-      arrows: true,
-      infinite: (props.series) ? false : true,
-      variableWidth: true,
-      draggable: true,
-      responsive: [
-        {
-          breakpoint: 850,
-          settings: {
-            slidesToShow: 1,
-            slidesToScroll: 1,
-            variableWidth: true
-          }
-        },
-        {
-          breakpoint: 600,
-          settings: props.series
-            ? "unslick"
-            : {
-                slidesToShow: 1,
-                slidesToScroll: 1
-              }
-        }
-      ]
-    };
-  }
+//     this.settings = {
+//       slidesToShow: 4,
+//       slidesToScroll: 1,
+//       arrows: true,
+//       infinite: (props.series) ? false : true,
+//       variableWidth: true,
+//       draggable: true,
+//       responsive: [
+//         {
+//           breakpoint: 850,
+//           settings: {
+//             slidesToShow: 1,
+//             slidesToScroll: 1,
+//             variableWidth: true
+//           }
+//         },
+//         {
+//           breakpoint: 600,
+//           settings: props.series
+//             ? "unslick"
+//             : {
+//                 slidesToShow: 1,
+//                 slidesToScroll: 1
+//               }
+//         }
+//       ]
+//     };
+//   }
   render() {
     const { data, continueWatching, series } = this.props;
 
+    const settings = {
+        slidesToShow: 4,
+        slidesToScroll: 1,
+        arrows: true,
+        infinite: (this.props.series) ? false : true,
+        variableWidth: true,
+        draggable: true,
+        responsive: [
+          {
+            breakpoint: 850,
+            settings: {
+              slidesToShow: 1,
+              slidesToScroll: 1,
+              variableWidth: true
+            }
+          },
+          {
+            breakpoint: 600,
+            settings: this.props.series
+              ? "unslick"
+              : {
+                  slidesToShow: 1,
+                  slidesToScroll: 1
+                }
+          }
+        ]
+      };
+
     console.log("SERIES PROP", this.props.series)
-    console.log(this.settings.responsive[1].settings)
-    console.log("INFINITE?", this.settings.infinite)
+    // console.log(this.settings.responsive[1].settings)
+    // console.log("INFINITE?", this.settings.infinite)
 
     return (
       <div className="seriesWrapper">
         {series ? (
           // CHAPTERS
-          <Slider {...this.settings}
+          <Slider {...settings}
           className="series-carrousel">
             {data.map((item, key) => {
               return (
@@ -64,19 +92,13 @@ class Carrousel extends React.Component {
           </Slider>
         ) : (
           // MOVIES
-          <Slider {...this.settings} className="series-carrousel">
+          <Slider {...settings} className="series-carrousel">
             {data.map((item, key) => {
               return (
-                <Link
-                  to={{
-                    pathname: `/selection/${item._id}`,
-                    type: item.chapters ? "series" : "movies"
-                  }}
-                  className="series-carrousel__link"
-                >
+                <Link to={`/selection/${item._id}`} key={key}
+                  className="series-carrousel__link">
                   <Movie
-                    data={item}
-                    key={key}
+                    data={item}   
                     continueWatching={continueWatching}
                   />
                 </Link>

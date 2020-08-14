@@ -7,7 +7,7 @@ import Carrousel from "../../components/carrousel";
 class Seleccion extends React.Component {
   constructor(props) {
     super(props);
-
+   
     this.state = {
       item: "",
       recomended: []
@@ -16,12 +16,13 @@ class Seleccion extends React.Component {
 
   async componentDidMount() {
     const { id } = this.props.match.params;
-    const { type } = this.props.location;
+    // const { type } = this.props.location;
 
-    const typeUrl = type === "movies" ? "movies" : "series";
+    // const typeUrl = type === "movies" ? "movies" : "series";
 
-    const data = await fetch(`http://localhost:3001/${typeUrl}/${id}`);
+    const data = await fetch(`http://localhost:3001/content/${id}`);
     const dataJson = await data.json();
+    console.log("fetch selection", dataJson)
 
     const dataMovies = await fetch(`http://localhost:3001/movies`);
     const dataMoviesJson = await dataMovies.json();
@@ -29,8 +30,22 @@ class Seleccion extends React.Component {
     this.setState({
       item: dataJson,
       recomended: dataMoviesJson
-    });
+    });  
   }
+
+
+  async componentDidUpdate(prevProps, prevState, snapshot) {
+    if (prevProps.match.params.id != this.props.match.params.id) {
+      const data = await fetch(`http://localhost:3001/content/${this.props.match.params.id}`);
+      const dataJson = await data.json();
+      this.setState({
+        item: dataJson
+      });
+    }
+  }
+  
+
+  
   render() {
     window.scrollTo(0, 0);
     const { item, recomended } = this.state;

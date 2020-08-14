@@ -46,7 +46,7 @@ class Hero extends React.Component {
             <p className="title-sinopsis">{data.synopsis}</p>
           </div>
         ) : (
-          // HOME
+        //   HOME
           <div className="main-titles">
             <h3 className="title-over">COURFLIX Original</h3>
             <h1 className="title-main">{data.title}</h1>
