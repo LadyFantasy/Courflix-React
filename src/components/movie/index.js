@@ -3,9 +3,9 @@ import "./index.scss"
 
 class Movie extends React.Component{
     render() {
-        const {_id, title, synopsis, year, age, imgCarrousel, carrouselMobile, imgHero, percentageWatched, recomended, seasons, chapters, chapterImg, chapterTitle, chapterSynopsis } = this.props.data
+        const {imgCarrousel, carrouselMobile, percentageWatched, chapterImg, chapterTitle, chapterSynopsis } = this.props.data
 
-        const {type, continueWatching} = this.props
+        const {continueWatching} = this.props
         
         return(
             <>

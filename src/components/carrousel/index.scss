@@ -63,4 +63,12 @@
         }
     }
 
+    .series-carrousel-serie{
+        @media screen and (max-width:600px) {
+            flex-direction: column;
+            align-items: flex-start;
+            margin-top: -1rem;
+        }
+    }
+
 }
