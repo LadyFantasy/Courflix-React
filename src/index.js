@@ -1,18 +1,17 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import './index.scss';
-import * as serviceWorker from './serviceWorker';
-import {BrowserRouter as Router, Route} from "react-router-dom" 
-import Home from "./pages/Home"
-import Seleccion from "./pages/Seleccion"
-
+import React from "react";
+import ReactDOM from "react-dom";
+import "./index.scss";
+import * as serviceWorker from "./serviceWorker";
+import { BrowserRouter as Router, Route } from "react-router-dom";
+import Home from "./pages/Home";
+import Selection from "./pages/Selection";
 
 ReactDOM.render(
- <Router>
-   <Route exact path="/" component={Home} />
-   <Route exact path="/selection/:id" component={Seleccion} reload={true}/>
- </Router>,
-  document.getElementById('root')
+  <Router>
+    <Route exact path="/" component={Home} />
+    <Route exact path="/selection/:id" component={Selection} />
+  </Router>,
+  document.getElementById("root")
 );
 
 // If you want your app to work offline and load faster, you can change
