@@ -75,8 +75,8 @@ class Hero extends React.Component {
 
   render() {
     const { data, selection } = this.props;
-    const { green, red, showMessage } = this.state;
-    console.log(showMessage);
+    const { green, red} = this.state;
+    
 
     return (
       <div

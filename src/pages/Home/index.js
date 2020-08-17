@@ -11,8 +11,7 @@ class Home extends React.Component {
     this.state = {
       movies: [],
       series: [],
-      localStorage: [],
-      myList: false
+      localStorage: []
     };
   }
 
@@ -35,15 +34,15 @@ class Home extends React.Component {
       const newDataLS = JSON.parse(dataLS);
 
       this.setState({
-        localStorage: newDataLS,
-        myList: true
+        localStorage: newDataLS
       });
     }
   }
 
   render() {
     window.scrollTo(0, 0);
-    const { series, movies, localStorage, myList } = this.state;
+    const { series, movies, localStorage } = this.state;
+    console.log(localStorage.length);
 
     return (
       <>
@@ -67,7 +66,7 @@ class Home extends React.Component {
           </h3>
           <Carrousel data={movies.filter(movie => movie.recomended)} />
 
-          {myList && (
+          {localStorage.length >= 1 && (
             <>
               <h3 className="series-title" id="list">
                 My list
