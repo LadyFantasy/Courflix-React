@@ -92,7 +92,9 @@ class Hero extends React.Component {
               <span className="main-detalle__text__spans coincidence">95% de coincidencia</span>
               <span className="main-detalle__text__spans year">{data.year}</span>
               <span className="main-detalle__text__spans age">+{data.age}</span>
-              <span className="main-detalle__text__spans seasons">{data.seasons} seasons</span>
+              {data.seasons && 
+              <span className="main-detalle__text__spans seasons">{data.seasons} seasons</span>}
+              
             </div>
             <button className="title-box title-box-red">Play</button>
 
