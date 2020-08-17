@@ -37,12 +37,13 @@ class Home extends React.Component {
         localStorage: newDataLS
       });
     }
+    
   }
 
   render() {
     window.scrollTo(0, 0);
     const { series, movies, localStorage } = this.state;
-    console.log(localStorage.length);
+    
 
     return (
       <>
@@ -66,7 +67,7 @@ class Home extends React.Component {
           </h3>
           <Carrousel data={movies.filter(movie => movie.recomended)} />
 
-          {localStorage.length >= 1 && (
+          {localStorage.length !=0 && (
             <>
               <h3 className="series-title" id="list">
                 My list
