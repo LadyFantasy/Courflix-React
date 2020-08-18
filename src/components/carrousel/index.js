@@ -9,7 +9,7 @@ class Carrousel extends React.Component {
     const { data, continueWatching, series, localStorage } = this.props;
 
     const settings = {
-      slidesToShow: 3,
+      slidesToShow: 1,
       slidesToScroll: 1,
       arrows: true,
       infinite: series || localStorage ? false : true,
