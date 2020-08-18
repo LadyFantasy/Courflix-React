@@ -4,7 +4,7 @@
   padding-left: 2rem;
 
   @media screen and (max-width: 850px) {
-    padding-left: 1rem;
+    padding-left: .3rem;
   }
 
   .series-carrousel {
@@ -62,7 +62,7 @@
     @media screen and (max-width: 600px) {
       margin-top: 1rem;
       flex-direction: column;
-      align-items: center;
+      align-items: flex-start;
     }
 
     .slick-prev {
