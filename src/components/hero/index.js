@@ -9,7 +9,8 @@ class Hero extends React.Component {
 
     this.state = {
       green: "",
-      red: ""
+      red: "",
+      added: false
     };
   }
 
@@ -39,6 +40,11 @@ class Hero extends React.Component {
 
   handleClick() {
     // SAVES TO LOCALSTORAGE
+
+    this.setState({
+      added: true
+    })
+    
     const { data } = this.props;
     const courflixData = localStorage.getItem("courflix");
 
