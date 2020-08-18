@@ -19,7 +19,7 @@ class Carrousel extends React.Component {
         {
           breakpoint: 1300,
           settings: {
-            slidesToShow: 2,
+            slidesToShow: 1,
             slidesToScroll: 1,
             variableWidth: true
           }
