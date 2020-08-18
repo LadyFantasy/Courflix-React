@@ -17,10 +17,10 @@ class Home extends React.Component {
 
   async componentDidMount() {
     // Fetch to API
-    const dataSeries = await fetch(`http://localhost:3001/series`);
+    const dataSeries = await fetch(`https://courflix-backend.herokuapp.com/series`);
     const seriesJson = await dataSeries.json();
 
-    const dataMovies = await fetch(`http://localhost:3001/movies`);
+    const dataMovies = await fetch(`https://courflix-backend.herokuapp.com/movies`);
     const moviesJson = await dataMovies.json();
 
     this.setState({

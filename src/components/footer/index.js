@@ -7,7 +7,7 @@ class Footer extends React.Component {
       <div className="footer">
         <p>
           Made with <span className="heart">❤ </span>by
-          <a href="https://github.com/LadyFantasy/Courflix-React">
+          <a href="https://github.com/LadyFantasy">
             <span className="heart"> Sole</span>
           </a>
         </p>

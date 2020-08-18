@@ -18,10 +18,10 @@ class Selection extends React.Component {
   async componentDidMount() {
     const { id } = this.props.match.params;
 
-    const data = await fetch(`http://localhost:3001/content/${id}`);
+    const data = await fetch(`https://courflix-backend.herokuapp.com/content/${id}`);
     const dataJson = await data.json();
 
-    const dataMovies = await fetch(`http://localhost:3001/movies`);
+    const dataMovies = await fetch(`https://courflix-backend.herokuapp.com/movies`);
     const dataMoviesJson = await dataMovies.json();
 
     this.setState({
@@ -33,7 +33,7 @@ class Selection extends React.Component {
   async componentDidUpdate(prevProps) {
     const { id } = this.props.match.params;
     if (prevProps.match.params.id != id) {
-      const data = await fetch(`http://localhost:3001/content/${id}`);
+      const data = await fetch(`https://courflix-backend.herokuapp.com/content/${id}`);
       const dataJson = await data.json();
       this.setState({
         item: dataJson
