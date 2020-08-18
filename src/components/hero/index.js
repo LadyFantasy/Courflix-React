@@ -45,10 +45,10 @@ class Hero extends React.Component {
     if (courflixData) {
       const parsedCourflixData = JSON.parse(courflixData);
 
-      const included = parsedCourflixData.some(item => {
+      const repeated = parsedCourflixData.some(item => {
         return data._id === item._id;
       });
-      if (!included) {
+      if (!repeated) {
         parsedCourflixData.push(data);
         const newCourflixData = JSON.stringify(parsedCourflixData);
         localStorage.setItem("courflix", newCourflixData);
@@ -75,7 +75,7 @@ class Hero extends React.Component {
 
   render() {
     const { data, selection } = this.props;
-    const { green, red} = this.state;
+    const { green, red } = this.state;
     
 
     return (
