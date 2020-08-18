@@ -17,6 +17,14 @@ class Carrousel extends React.Component {
       draggable: true,
       responsive: [
         {
+          breakpoint: 1800,
+          settings: {
+            slidesToShow: 1,
+            slidesToScroll: 1,
+            variableWidth: true
+          }
+        },
+        {
           breakpoint: 1300,
           settings: {
             slidesToShow: 1,
