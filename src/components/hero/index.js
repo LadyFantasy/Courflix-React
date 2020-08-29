@@ -40,7 +40,7 @@ class Hero extends React.Component {
 
   handleClick() {
     
-    // MODAL VISIBLE WHEN CLICK IN ADD TO MY LIST
+    // Changes button text when added to my list
     this.setState({
       added: true
     });
