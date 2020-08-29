@@ -77,12 +77,13 @@ class Hero extends React.Component {
   }
 
   async componentDidUpdate(prevProps) {
-    // RESETS LIKE AND DISLIKE BUTTONS
+    // RESETS LIKE AND DISLIKE BUTTONS and ADDED
     const { id } = this.props;
     if (prevProps.id != id) {
       this.setState({
         green: "",
-        red: ""
+        red: "",
+        added: false
       });
     }
   }
