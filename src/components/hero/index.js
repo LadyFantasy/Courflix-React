@@ -39,12 +39,20 @@ class Hero extends React.Component {
   }
 
   handleClick() {
-    // SAVES TO LOCALSTORAGE
-
+    
+    // MODAL VISIBLE WHEN CLICK IN ADD TO MY LIST
     this.setState({
       added: true
-    })
+    });
+    setTimeout(() => {
+      this.setState({
+        added: false
+      })
+      }, 4000);
     
+    
+      // SAVES TO LOCALSTORAGE
+
     const { data } = this.props;
     const courflixData = localStorage.getItem("courflix");
 
@@ -81,7 +89,9 @@ class Hero extends React.Component {
 
   render() {
     const { data, selection } = this.props;
-    const { green, red } = this.state;
+    const { green, red, added } = this.state;
+    const buttonText = added ? "Added to My List!" : "+My List"
+    const classButton = added ? "title-box title-box-green lista" : "title-box lista"
     
 
     return (
@@ -104,9 +114,13 @@ class Hero extends React.Component {
             </div>
             <button className="title-box title-box-red">Play</button>
 
-            <button onClick={() => this.handleClick()} className="title-box lista">
-              + My List
+            
+              <button onClick={() => this.handleClick()} className={classButton}>
+             {buttonText}
             </button>
+            
+            
+            
 
             <span className={`thumbs ${green}`} onClick={() => this.handleLike()}>
               <FontAwesomeIcon icon={faThumbsUp} className="icon" />
@@ -129,9 +143,10 @@ class Hero extends React.Component {
             </div>
             <button className="title-box">Play</button>
 
-            <button onClick={() => this.handleClick()} className="title-box lista">
-              + My List
+            <button onClick={() => this.handleClick()} className={classButton}>
+             {buttonText}
             </button>
+            
 
             {data.seasons && <p className="title-serie">Watch season 1</p>}
 
